@@ -15,6 +15,9 @@ const TICK = 30;
 
 const CELL_SIZE = 64;
 
+//Global boolean for map showcase.
+let mapFlag=true;
+
 const PLAYER_SIZE = 10;
 //Field of view.
 const FOV = toRadians(60);
@@ -225,6 +228,8 @@ function gameLoop() {
     movePlayer();
     const rays = getRays();
     renderScene(rays);
+    if (mapFlag)
+        renderMinimap(0, 0, 0.375, rays);
 }
 //Loop for the game function that runs every "TICK" milliseconds.
 setInterval(gameLoop, TICK);
@@ -247,4 +252,33 @@ document.addEventListener("keyup", (e) => {
 //Mouse move function (left to right).
 document.addEventListener("mousemove", (e) => {
     player.angle += toRadians((e.movementX))
+})
+//Key press for minimap.
+document.addEventListener("keypress", (e) => {
+    if (e.key == "M" || e.key == "m" || e.key == "צ")
+        //Invert the map flag to hide and show the map.
+        mapFlag = !mapFlag;
+})
+//Key press for taking screenshots.
+document.addEventListener("keypress", (e)=>{
+    if (e.key == "P" || e.key == "p" || e.key == "פ"){
+        //Convert the game canvas to DataURL type.
+        var tempImage = gameCanvas.toDataURL('image/jpeg');
+        //Create a download function to simulate a mouse click event that triggers the download.
+        function downloadImage(tempData) {
+            //Temporary download element.
+            var download = document.createElement('a');
+            //Set fields.
+            download.href = tempData;
+            download.target = '_blank';
+            download.download = "Screenshot.jpeg";
+            //(evt = event)
+            var evt = document.createEvent('MouseEvents');
+            //Initialize mouse click.
+            evt.initMouseEvent('click', true, true, window, 1, 0, 0, 0, 0,
+                               false, false, false, false, 0, null);
+            download.dispatchEvent(evt);
+        }
+        downloadImage(tempImage);
+    }
 })
