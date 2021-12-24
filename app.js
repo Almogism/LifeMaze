@@ -42,8 +42,9 @@ app.use(express.static(__dirname + '/public'));
 
 //app.use(express.json());
 
+//app.use('/',require('./routes/pages'));
 
-
+//--------- routes 
 
 app.get('/',(req,res)=>{
     res.render('firstpage');
@@ -52,6 +53,23 @@ app.get('/',(req,res)=>{
 app.get('/login',(req,res)=>{
     res.render('login');
 })
+app.get('/signUp',(req,res)=>{
+    res.render('signUp');
+})
+app.get('/game',(req,res)=>{
+    res.render('game');
+})
+app.get('/contactdev',(req,res)=>{
+    res.render('contactdev');
+})
+app.get('/recoverPassword',(req,res)=>{
+    res.render('recoverPassword');
+})
+app.get('/toAdd',(req,res)=>{
+    res.render('toAdd');
+})
+
+//--------- routes 
 //local host - 3000
 app.listen(3000,()=>{
     console.log("server started on port 3000");
