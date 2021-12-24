@@ -33,19 +33,23 @@
 <body id="log-in"> 
     <div class="center">
     <h1>Life Maze</h1>
-    <form method="post">
+    <form action="/game" method="POST" >
+
     <div class="txt_field">
-            <input type="text" required style="text-align: center;">
+            <input type="text" required style="text-align: center;"id = "myusername" name = "myusername">
             <span></span>
             <label>שם משתמש</label>
     </div>
     <div class="txt_field">
-            <input type="password" required style="text-align: center;">
+            <input type="password" required style="text-align: center;" id = "mypassword" name = "password">
             <span></span>
             <label>סיסמא</label>
     </div>
+
+
     <div class="pass" onclick="location.href='/recoverPassword'">?שכחת סיסמא</div>
-    <input type="button" value="כניסה למשחק" style="margin-bottom: -200px;" onclick="location.href='/game'">
+    <!--<input type="submit" value="כניסה למשחק" style="margin-bottom: -200px;" onclick="location.href='/game'">-->
+    <button type="submit" class="btn btn-primary" >כניסה למשחק </button>
     <div class="signup_link">
     <input type="button" value="הרשמה" style="margin-bottom: -200px;" onclick="location.href='/signUp'">
     <br>

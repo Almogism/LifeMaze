@@ -9,28 +9,51 @@
 <body>
     <div class="center" style="margin-top: 80px;">
     <h1>LifeMaze - הרשמה</h1>
-    <form method="post">
+    <form action="/login" method="POST">
         <div class="txt_field">
-            <input type="text" required style="text-align: center;" id = "myusername">
+            <input type="text" required style="text-align: center;" id = "myusername" name = "myusername">
             <span></span>
             <label>שם משתמש</label>
         </div>
         <div class="txt_field">
-            <input type="text" required style="text-align: center;" id = "myname">
+            <input type="text" required style="text-align: center;" id = "myname" name="name">
             <span></span>
             <label>שם פרטי</label>
         </div>
+        <br>
+         <div id="service" class="radio1">
+         <h4>?איפה שירתת</h4>
+         <input type="radio" id="service" name="service" value="service">
+         <label for="service">שירות לאומי</label><br>
+        <span class="checkmark"></span>
+         <input type="radio" id="service" name="service" value="army">
+         <label for="army">צבא הגנה לישראל</label><br>
+        </div>
 
+
+         <div id="gender" class="radio2">
+         <h4>??זכר או נקבה</h4>
+         <input type="radio" id="gender" name="gender" value="male">
+         <label for="male">זכר</label><br>
+        
+         <input type="radio" id="gender" name="gender" value="female">
+         <label for="female">נקבה</label><br>
+
+         <input type="radio" id="gender" name="gender" value="other">
+         <label for="other">אחר</label><br>
+        
+        </div>
+<!--
         <div id="service" class="radio1">
         <h4>?איפה שירתת</h4>
         <label class="container">שירות לאומי
-            <input type="radio" name = services id = myservice required>
+            <input type="radio" name = service id = myservice required>
             <span class="checkmark"></span>
           </label>
         </div>
         <div id="service" class="radio1">
         <label class="container">צבא ההגנה לישראל  
-            <input type="radio" name = services id = myservice>
+            <input type="radio" name = service id = myservice>
             <span class="checkmark"></span>
           </label>
         </div>
@@ -56,23 +79,27 @@
               </label>
             </div>
 
+-->
         <div class="txt_field">
-            <input type="password" required style="text-align: center;" id = "mypassword">
+            <input type="password" required style="text-align: center;" id = "mypassword" name = "password">
             <span></span>
             <label>סיסמא</label>
         </div>
         <div class="txt_field">
-            <input type="password" required style="text-align: center;" id = "mypassword2">
+            <input type="password" required style="text-align: center;" id = "mypassword2" name = "passwordConfirm">
             <span></span>
             <label>אישור סיסמא</label>
         </div>
-        <input type="button" value="!להירשם" style="margin-bottom: 10px;" class="btn">
-        
+
+        <button  type ="submit" class="btn btn-primary" >!להירשם</button>
+        <!--<input type="button" value="!להירשם" style="margin-bottom: 10px;" class="btn">-->
 
     </form>
+             {{#if message }}
+                <h4 class="alert alert-danger mt-4">{{message}}</h4>
+            {{/if}}
     </div>
-    <script src = "signup.js"> 
-    </script>
+
 </body>
 </html>
 <!-- src="singup.js" -->

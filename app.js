@@ -2,6 +2,9 @@ const express = require("express");
 const dotenv = require("dotenv");
 const mysql = require("mysql");
 var path = require('path');
+const bp = require('body-parser');
+const bcrypt = require("bcryptjs");
+
 
 dotenv.config({path: './.env'});
 
@@ -17,6 +20,10 @@ const db = mysql.createConnection({
 const publicDirectory = path.join(__dirname,'./public');
 console.log(publicDirectory);
 app.use(express.static(publicDirectory));
+
+app.use(bp.json())
+app.use(bp.urlencoded({ extended: true }))
+
 app.set('view engine', 'hbs');
 
 //connect 
@@ -29,23 +36,7 @@ db.connect((error)=>{
     }
 })
 
-
-/*
-app.set('views', path.join(__dirname, 'views'));
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
-*/
-/*
-app.use(express.static(__dirname + '/public'));
-*/
-//app.use(express.urlencoded({extended: false}));
-
-//app.use(express.json());
-
-//app.use('/',require('./routes/pages'));
-
-//--------- routes 
-
+//--------- routes
 app.get('/',(req,res)=>{
     res.render('firstpage');
 })
@@ -69,7 +60,92 @@ app.get('/toAdd',(req,res)=>{
     res.render('toAdd');
 })
 
-//--------- routes 
+//--------- routes ^
+
+//----------postes V
+app.post('/login',(req,res)=>{
+    
+    console.log(req.body);
+
+    //getting the info from html
+    const username = req.body.myusername;
+    const name = req.body.name;
+    const password = req.body.password;
+    const passwordConfirm = req.body.passwordConfirm;
+    const service = req.body.service;
+    const genders = req.body.gender;
+
+    //is there already this username
+    db.query('SELECT userName FROM users WHERE userName = ?',[username],async (error,results)=>{
+        if(error){
+            console.log(error);
+        }
+        if(results.length >0){
+            
+            console.log('that username is already in use');
+            return;
+            //help dosent work V
+            /*return res.render('signup',{
+                messege:'that username is already in use'
+            })*/
+        }
+        //is the password confirm is right
+        else if(password !== passwordConfirm)
+        {
+            console.log('password dosent match');
+            return;
+            //help dosent work V
+            /*
+            return res.render('signup',{
+                message: 'Password do not match'
+            })
+            */
+        }
+
+        //hash the password
+        const hashedPassword = await bcrypt.hash(password,8);
+        console.log(hashedPassword);
+        //insert into db
+        /*
+        db.query('INSERT INTO users SET ?',
+        {userName : username , Name : name , password : hashedPassword , gender : genders ,service: service },(error,results)=>{
+            if(error){
+                console.log(error);
+            }
+            else{
+                console.log(results);
+            }
+        })
+        */
+
+
+    })
+
+    res.render('login');
+
+})
+
+//-get into game
+app.post('/game',(req,res)=>{
+    
+    const username = req.body.myusername;
+    const password = req.body.password;
+    console.log(username);
+    console.log(password);
+    db.query('SELECT userName FROM users WHERE userName = ?',[username],async(error,results)=>{
+        if(error){
+            console.log(error);
+        }
+        if(results.length >0){
+            console.log('no username like this');
+            return;
+        }
+    }
+    )
+    res.render('game');
+})
+//----------postes ^
+
 //local host - 3000
 app.listen(3000,()=>{
     console.log("server started on port 3000");
