@@ -62,7 +62,7 @@ app.get('/toAdd',(req,res)=>{
 
 //--------- routes ^
 
-//----------postes V
+//----------posts V
 app.post('/login',(req,res)=>{
     
     console.log(req.body);
@@ -103,20 +103,21 @@ app.post('/login',(req,res)=>{
         }
 
         //hash the password
-        const hashedPassword = await bcrypt.hash(password,8);
-        console.log(hashedPassword);
+        var salt = await bcrypt.genSalt(10);
+        var hashedPassword = await bcrypt.hashSync(password,salt);
+
         //insert into db
-        /*
+        
         db.query('INSERT INTO users SET ?',
         {userName : username , Name : name , password : hashedPassword , gender : genders ,service: service },(error,results)=>{
             if(error){
                 console.log(error);
             }
-            else{
+            /*else{
                 console.log(results);
-            }
+            }*/
         })
-        */
+        
 
 
     })
@@ -130,21 +131,31 @@ app.post('/game',(req,res)=>{
     
     const username = req.body.myusername;
     const password = req.body.password;
-    console.log(username);
-    console.log(password);
-    db.query('SELECT userName FROM users WHERE userName = ?',[username],async(error,results)=>{
+
+    db.query('SELECT password FROM users WHERE userName = ? ',[username],async(error,results)=>{
         if(error){
             console.log(error);
         }
-        if(results.length >0){
-            console.log('no username like this');
+        if(results.length==0){
+            console.log('wrong user name or paswword');
+            res.render('toAdd');
             return;
         }
+        const pass = results[0].password;
+
+
+       if( bcrypt.compareSync(password,pass)){
+           console.log('fuck yeah');
+           res.render('game');
+       }
+
+        
+        
     }
     )
-    res.render('game');
+    
 })
-//----------postes ^
+
 
 //local host - 3000
 app.listen(3000,()=>{
