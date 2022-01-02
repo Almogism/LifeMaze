@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-    
-</head>
-<head>
+
+<head style="direction: rtl;">
     <p style="text-align: right;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Blue_question_mark_icon.svg/1200px-Blue_question_mark_icon.svg.png" alt="" 
     title="!ברוכים הבאים
     .מטרתו של המשחק היא הכנתכם לחיים האמיתיים לאחר שירות ארוך ומשמעותי עבור המדינה
@@ -30,7 +28,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body id="log-in"> 
+<body style="direction: rtl;" id="log-in"> 
     <div class="center">
     <h1>Life Maze</h1>
     <form action="/game" method="POST" >
@@ -38,25 +36,20 @@
     <div class="txt_field">
             <input type="text" required style="text-align: center;"id = "myusername" name = "myusername">
             <span></span>
-            <label>שם משתמש</label>
+            <label style="direction: rtl;">שם משתמש</label>
     </div>
     <div class="txt_field">
             <input type="password" required style="text-align: center;" id = "mypassword" name = "password">
             <span></span>
-            <label>סיסמא</label>
+            <label style="direction: rtl;">סיסמא</label>
     </div>
 
-
-    <div class="pass" onclick="location.href='/recoverPassword'">?שכחת סיסמא</div>
     <!--<input type="submit" value="כניסה למשחק" style="margin-bottom: -200px;" onclick="location.href='/game'">-->
     <button type="submit" class="btn btn-primary" >כניסה למשחק </button>
     <div class="signup_link">
     <input type="button" value="הרשמה" style="margin-bottom: -200px;" onclick="location.href='/signUp'">
-    <br>
-    <br>
-    <br>
+    <br> <br> <br>
     <div class="pass" style="text-align:center" onclick="location.href='/contactdev'">צור קשר</div>
-    
 
     </div>
     </form>
