@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <p style="text-align: center; margin-top: 15px; margin-bottom: 5px;"><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/contact-us-485563.png" alt="" 
+        width="75" height="75" /></p>
+
+    <meta charset="UTF-8">
+    <title>Contact Form Design</title>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <link rel="stylesheet" type="text/css" href="style_contactus.css">   
+  </head>
+<body id = "dev">
+    <div class="contact-title" style="margin-top: -20px;"> 
+    <br>
+    <h1>צור קשר</h1>
+    <h2>!אנחנו תמיד כאן בשבילך, תשלח הודעה</h2>
+    </div>
+    <div class="contact-form">
+        <form id="contact-form" method="post" action="" enctype="multipart/form-data">
+        <input name="name" type="text" class="form-control" style="text-align: right;" placeholder="שם" required><br>
+        <!-- <input name="email" type="email" class="form-control" style="text-align: right;" placeholder="כתובת אימייל" required><br> -->
+        <textarea id="textbox" name="message" class="form-control" style="text-align: right;" placeholder="..." rows="8" required></textarea><br>
+        <input type="button" style="margin-top: 0px;" class="form-control submit" value="שלח הודעה" onclick="sendEmail()"></form> 
+    </div>
+    <script type="text/javascript">
+        function sendEmail() {
+          Email.send({
+            Host: "smtp.gmail.com",
+            Username: "lifemaze.dev@gmail.com",
+            Password: "0542105021h!",
+            To: 'lifemaze.dev@gmail.com',
+            From: "lifemaze.dev@gmail.com",
+            Subject: "פנייה מהמשתמש אל המתכנת",
+            Body: document.querySelector('#textbox').value 
+          })
+            .then(function (message) {
+              alert("פנייתך נשלחה")
+            });
+        }
+      </script>
+    
+    
+</body>
+</html>
