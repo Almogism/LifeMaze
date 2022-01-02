@@ -7,6 +7,7 @@ body{
     overflow: hidden;
     font-family:sans-serif;
     
+    
 }
 .contact-title {
     margin-top: 100px;
@@ -43,5 +44,50 @@ form{
     font-family:sans-serif;
 
 }
+.welcome-title{
+    font-size: 22px;
+    line-height: 10px;
+    color: white;
+    font-family:sans-serif;
 
+}
+.game-title{
+    font-size: 22px;
+    line-height: 10px;
+    color: white;
+    font-family:sans-serif;
+
+}
+.intro-questions{
+     font-size: 22px;
+    line-height: 10px;
+    color: white;
+    font-family:sans-serif;
+
+}
+.button-lets-play{
+    width: 20%;
+    height: 50px;
+    border: 1px solid;
+    background: #2691d9;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    
+}
+button[type="submit"]{
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #2691d9;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
 
