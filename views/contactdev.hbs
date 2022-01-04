@@ -16,13 +16,14 @@
     <h1>צור קשר</h1>
     <h2>!אנחנו תמיד כאן בשבילך, תשלח הודעה</h2>
     </div>
+
     <div class="contact-form">
         <form id="contact-form" method="post" action="" enctype="multipart/form-data">
-        <input name="name" type="text" required class="form-control" style="text-align: right;" placeholder="שם" ><br>
-        <textarea id="textbox" type="text" requierd dir="auto" name="message" class="form-control" style="text-align: right;" placeholder="..." rows="8" ></textarea><br>
+        <input name="name" type="text" class="form-control" style="text-align: right;" placeholder="שם משתמש" required><br>
+        <textarea id="textbox" type="text" required dir="auto" name="message" class="form-control" style="text-align: right;" placeholder="...המשוב שלך" rows="8" ></textarea><br>
         <input type="button" style="margin-top: 0px;" class="form-control submit" value="שלח הודעה" onclick="sendEmail()"></form> 
     </div>
-    <script type="text/javascript">
+    <script type="text/javascript" >
         function sendEmail() {
           Email.send({
             Host: "smtp.gmail.com",
