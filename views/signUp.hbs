@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <link rel="icon" type="image/png" href="/assets/lifemazelogo.png">
-<html lang="en" dir="ltr">
+<html lang="en" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <title>Signup form</title>
@@ -12,27 +12,27 @@
     <h1>LifeMaze - הרשמה</h1>
     <form action="/login" method="POST">
         <div class="txt_field">
-            <input type="text" required style="text-align: center;" id = "myusername" name = "myusername">
+            <input type="text" required style="text-align: center;" id = "myusername" name = "myusername" placeholder="שם משתמש">
             <span></span>
-            <label>שם משתמש</label>
+            {{!-- <label>שם משתמש</label> --}}
         </div>
         <div class="txt_field">
-            <input type="text" required style="text-align: center;" id = "myname" name="name">
+            <input type="text" required style="text-align: center;" id = "myname" name="name" placeholder="שם פרטי">
             <span></span>
-            <label>שם פרטי</label>
+            {{!-- <label>שם פרטי</label> --}}
         </div>
         <br>
          <div id="service" class="radio1">
-         <h4>?איפה שירתת</h4>
+         <h4>איפה שירתת?</h4>
          <input type="radio" id="service" name="service" value="service">
          <label for="service">שירות לאומי</label><br>
-        <span class="checkmark"></span>
+        {{!-- <span class="checkmark"></span> --}}
          <input type="radio" id="service" name="service" value="army">
          <label for="army">צבא הגנה לישראל</label><br>
         </div>
 
          <div id="gender" class="radio2">
-         <h4>?זכר או נקבה</h4>
+         <h4>זכר או נקבה?</h4>
          <input type="radio" id="gender" name="gender" value="male">
          <label for="male">זכר</label><br>
         
@@ -45,18 +45,18 @@
         </div>
 
         <div class="txt_field">
-            <input type="password" required style="text-align: center;" id = "mypassword" name = "password">
+            <input type="password" required style="text-align: center;" id = "mypassword" name = "password" placeholder="סיסמא">
             <span></span>
-            <label>סיסמא</label>
+            
         </div>
         
         <div class="txt_field">
-            <input type="password" required style="text-align: center;" id = "mypassword2" name = "passwordConfirm">
+            <input type="password" required style="text-align: center;" id = "mypassword2" name = "passwordConfirm" placeholder="אישור סיסמא">
             <span></span>
-            <label>אישור סיסמא</label>
+            
         </div>
 
-        <button  type ="submit" class="btn btn-primary" >!להירשם</button>
+        <button  type ="submit" class="btn btn-primary" >הרשמה</button>
         
 
     </form>
