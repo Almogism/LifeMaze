@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <link rel="icon" type="image/png" href="/assets/lifemazelogo.png">
-<html lang="en" dir="ltr">
+<html lang="en" dir="rtl">
 
 <head style="direction: rtl;">
-    <p style="text-align: right;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Blue_question_mark_icon.svg/1200px-Blue_question_mark_icon.svg.png" alt="" 
-    title="!ברוכים הבאים
-    .מטרתו של המשחק היא הכנתכם לחיים האמיתיים לאחר שירות ארוך ומשמעותי עבור המדינה
-    .התנועה במשחק היא באמצעות העכבר וחצי המקלדת
-    .כדי לכבות או להפעיל את מפת המשחק M לחצו על" style="text-align: right;"
-    width="36" height="36" /></p>
+
+    <div class="intro-help-hover" style="direction: rtl;">
+    <p style="direction: rtl;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Blue_question_mark_icon.svg/1200px-Blue_question_mark_icon.svg.png" alt="" 
+    title=
+    "    ברוכים הבאים🎉 
+    מטרתו של המשחק היא הכנתכם לחיים האמיתיים לאחר שירות ארוך ומשמעותי עבור המדינה. 
+    התנועה במשחק היא באמצעות העכבר וחצי המקלדת.
+    כדי לכבות או להפעיל את מפת המשחק  לחצו על M."
+    
+    width="36" height="36" /></p> </div> 
         <script>
             function copyLink(){
                 navigator.clipboard.writeText("https://lifemaze.com/");
@@ -29,20 +33,21 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body style="direction: rtl;" id="log-in"> 
     <div class="center">
     <h1>Life Maze</h1>
     <form action="/game" method="POST" >
 
     <div class="txt_field">
-            <input type="text" required style="text-align: center;"id = "myusername" name = "myusername">
+            <input type="text" required style="text-align: center;"id = "myusername" name = "myusername"  placeholder="שם משתמש">
             <span></span>
-            <label>שם משתמש</label>
+            
     </div>
     <div class="txt_field">
-            <input type="password" required style="text-align: center;" id = "mypassword" name = "password">
+            <input type="password" required style="text-align: center;" id = "mypassword" name = "password"  placeholder="סיסמא">
             <span></span>
-            <label >סיסמא</label>
+           
     </div>
 
     <!--<input type="submit" value="כניסה למשחק" style="margin-bottom: -200px;" onclick="location.href='/game'">-->
