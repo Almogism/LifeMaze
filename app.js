@@ -38,7 +38,7 @@ db.connect((error)=>{
 
 //--------- routes
 app.get('/',(req,res)=>{
-    res.render('firstpage');
+    res.render('landingpage');
 })
 
 app.get('/login',(req,res)=>{
@@ -59,6 +59,16 @@ app.get('/recoverPassword',(req,res)=>{
 app.get('/toAdd',(req,res)=>{
     res.render('toAdd');
 })
+app.get('/setting',(req,res)=>{
+    res.render('settings');
+})
+app.get('/videopage',(req,res)=>{
+    res.render('videopage');
+})
+app.get('/redirecting',(req,res)=>{
+    res.render('redirecting');
+})
+
 
 //--------- routes ^
 
